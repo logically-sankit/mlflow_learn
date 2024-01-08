@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "mlflow-learn"
+version = "0.1.0"
+description = "project to learn and practive mlflow"
+authors = ["sankit <sankit.a@logically.co.uk>"]
+readme = "README.md"
+packages = [{include = "mlflow_learn"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+mlflow = "^2.9.2"
+
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.13.2"
+flake8 = "^7.0.0"
+pytest = "^7.4.4"
+black = "^23.12.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+py_version = "auto"
+skip_gitignore = true
+line_length = 80
+
+[tool.black]
+line-length = 80
+target-version = ["py39"]
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "mlflow_learn",
+]
+
+addopts = "-ra --cov mlflow_learn"
